@@ -1,0 +1,821 @@
+﻿.. geOrchestra Community Meeting synthesis master file, created by
+   sphinx-quickstart on Wed Jun 18 20:53:14 2014.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+============
+Présentation
+============
+geOrchestra Community Meeting's synthesis ! - geOcom 2014
+
+Contact communauté : psc@georchestra.org
+
+Les outils à disposition :
+
+* Trello (synthèse) : https://trello.com/b/BPJal7ys/geocom2014-synthese
+* Framapad (synthèse) : http://lite4.framapad.org/p/21qrnNRlfR
+* Trello (formation/mutualisation) : https://trello.com/b/2qaWeK7d/geocom2014-formation-et-mutualisation
+
+
+Jeudi 19/06/2014
+================
+Accueil - Tour de table
+
+Introduction Frédéric Deneux :
+
+* Satisfaction de l'outil geOrchestra,
+* Faire en sorte que l'outil soit "clinquant", qu'il séduise un public plus large, notamment les élus,
+* Proposition de travailler sur les services, notamment communs aux plateformes régionales.
+    
+Fabrice Phung :
+
+* Présentation des membres du psc, des développeurs (P. Mauduit, F. Van Der Biest, L. Breuil, F. Gravin), de développeurs dans la sphère de la communauté, des administrateurs  et des participants avec support carte qgis,
+* Présentation des objectifs : partage des bonnes pratiques, établissement de la roadmoap.
+* Présentation de georchestra via le lien : http://sdi.georchestra.org/presentation/#/
+
+Evolution de la 14.06 :
+
+* GeowebCache détaché de Geoserver 
+* Geonetwork : pas grand chose mais fin d'année : passage en geonetwork V3
+* Questions :
+	* Peut-on extraire au format autocad à partir d'un objet ? Non, actuellement rectangle englobant en shp, kml, mif/mid, tab, etc...
+	* Sujets intéressants à traiter dans l'avenir : connection vers le monde de l'observation : protocole SOS, TJS.
+
+
+Les visionneurs simplifiés de georchestra (sviewer/mviewer) - 60 mn
+*******************************************************************
+
+Sébastien Pelhate (Région Bretagne).
+
+Profil issu du monde thématique et propriétaire, baigne dans le monde du libre depuis 3 ans. 
+Deux visualiseurs : un "expert" dans georchestra, et un "simplifié" pour faire complément à l'attention d'un public différent
+
+SVIEWER  
+-------
+(SIMPLE VIEWER) - Visualiseur simplifié côté utilisateur
+
+Objectif :
+++++++++++
+
+* Intégrer une carte dans un site éditorial,
+* Visionneuse applicative,
+* Intégration à GetNetwork d'un lien vers SVIEWER dans la fiche de metadonnées (lien ajouté manuellement). (http://geo.viennagglo.fr/sviewer/?layers=julien:commune),
+* Visionneuse d'entité géographiqe (catalogue) via SIGN'ADRESSE : signalement d'adresse (attention : pas BDADRESSE) via flux non géographique (via pôle métier technique VRD au sein de la colléctivité),
+* Exemple d'utilisation dans une iframe,
+* Exemple pour une version applicative : `Cadastre Napoleonien <http://kartenn.region-bretagne.fr/sviewer/?x=-300998&y=6138966&z=9&lb=0&layers=rb%3Aassemblage_cadastre_napoleonien&title=Acc%C3%A9der+aux+feuilles+du+cadastre+napol%C3%A9onien>`_
+* Exemple de lien dans une fiche de métadonnée : http://geobretagne.fr/geonetwork/apps/georchestra/?uuid=99e78163-ce9a-4eee-9ea0-36afc2a53d25
+
+Intérêts :
+++++++++++
+
+* Temps de chargement réduit par rapport au chargement de mapfishapp (visualiseur expert),
+* Ergonomie plus travaillée : Mode "Gros doigts",
+
+Remarques :
++++++++++++
+
+* Perturbation de la présence des différents viewer. Quelle stratégie adopter : quelle visualiseur choisir ?
+* Choix des entrées suivants complexité de la solution et des compétences d'utilisateur.
+* Débat sur ne craint-on pas que la multiplicité des visualiseurs nuise à la lisibilité de l'utilisateur ? Oui, mais en même temps c'est une richesse que de pouvoir proposer des accès différenciés en fonction du niveau d'expertise et de besoins de l'utilisateur.
+* Frédéric Deneux souligne l'importance de proposer des outils à portée de la plupart des utilisateurs. "Fisher Price(tm)"
+
+MVIEWER
+-------
+(MIDDLE VIEWER) - Visualiseur "grand public" - côté concepteur
+
+A la base projet Metz Métropole : geometzmetropole qui a libéré son code.
+La Région Bretagne l'a réutilisé en redéveloppant sur OL3.
+http://kartenn.region-bretagne.fr/
+
+Fortement inspiré de http://geo.metzmetropole.fr :
+
+* simple, ergonomique, respectant les standards OGC et développer sur leaflet,²
+* Changement du moteur carto pour le mviewer et orientation vers OL3. Projet non reversé dans geOrchestra pour l'instant - développement interne GéoBretagne. (https://github.com/geobretagne/mviewer/),
+* L'objectif est d'avoir un visualiseur thématique, par opposition au monocouche sviewer. Davantage de choix au niveau des fonds de plan,
+* Bascule des couches vecteurs possible dans le visualiseur geOrchestra.
+
+Objectifs :
++++++++++++
+
+* Visualiseur intermédiaire par rapport à SVIEWER et MAPFISHAPP,
+* Visualiseur thématique,
+* Alimenter via geOrchestra.
+
+Ré-utilisation :
+++++++++++++++++
+
+* Lorient Agglo : tutorial - geoservices.lorient-agglo.fr/mviewer/tutorial
+* Agrocampus,
+* Il répond à un vrai besoin de profils utilisateurs pas "pro du SIG" mais qui souhaitent consulter facilement des informations (pour eux, le visualiseur avancé est déjà trop compliqué.
+
+Add-ons :
++++++++++
+
+* Dual visualiseur GeoBolivia : Basé sur Mapfishapp
+* Dual visualiseur GeoBretagne : geobretagne.fr/sviewer/dual.html
+
+Remarques :
++++++++++++
+
+* Même problématique que le SVIEWER - Perturbation de la présence des différents viewer. Quelle stratégie adopter : quelle visualiseur choisir ?
+* Choix des entrées suivants complexité de la solution et des compétences d'utilisateur.
+
+Qui est intéressé(s) ? :
+++++++++++++++++++++++++
+
+* B. Chartier : séduit par fonctionnalités, mais refroidi par le look, donc intéressé par les personnalisations possbiles (ex. Lorient agglo),
+* CIGAL : cet outil répond à beaucoup d'attentes et suivent avec intérêt. Il répond à un réel besoin, déjà présenté à certains partenaires,
+* CRAIG : intéressé par visionneuse qui compare les différents versions dans le temps (ex. orthophoto) : avec curseur temps.
+
+
+Vers un fond carto OSM mutualisé - (60mn)
+*****************************************
+@fabrice @benjamin @landry  
+
+L'idée d'un fond OSM utilisable dans les solutions web et de le mutualisé en France, soutenu par la communauté geOrchestra.
+
+Présentation des travaux de Benjamin Chartier (GeoPicardie)
+-----------------------------------------------------------
+
+Constats
+++++++++
+
+* Pas de fond libre exploitable par les collectivités, souvent que du réseau routier, pas forcément disponible en WMS,
+* Fond BaseMaps (T. Bonfort): libre, facile à mettre en oeuvre, performant, apparence trop routière
+
+Cahier des charges à la réalisation de ce fond de plan
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+* Fond multi-échelles,
+* Libre,
+* Topo,
+* Agréable à regarder,
+* Neutre,
+* Exploitable,
+* Dispo en L93.
+
+Réalisation
++++++++++++
+
+* 3 fonds réalisés par GéoPicardie : 1 contrasté, 1 moins contrasté, 1 noir et blanc,
+* Sources : 1 mondiale et 1 nationale,
+* Choix d'ImpOSM 2 pour l'intégration des données OSM sur PostgreSql,
+* Styles : TileMill, Mapnik, mapproxy.
+
+Représentations :
++++++++++++++++++
+
+* Bordure plus sombre sur objets polygones,
+* Réseau ferré : distinction en fonction des échelles,
+* Toponymie : gestion de l'importance en fonction des échelles.
+
+* A faire (évolutions ) :
+	* enrichir les fonctions exploitant les relations,
+	* corriger défauts graphiques,
+	* préparer représentation superposable aux orthos,
+	* migration vers d'autres outils : basemaps, impsom3.
+
+
+Configuration des sources de données :
+++++++++++++++++++++++++++++++++++++++
+
+* Echelle mondiale :
+	* Source Natural Earth,
+* Echelle nationale :
+	* BDD Postgres/Postgis,
+	* Alimentation Imposm2,
+	* Scripts SQL pour personnalisation et corrections :
+		* Fusion de linéaire pour nom de voies,
+		* Correction de topologie.
+		
+Conception des styles :
++++++++++++++++++++++++
+
+* Via TileMill - Style CSS :
+	* Epuration des toponymes (Communes, lieux-dits, nom de voies, carrefour),
+	
+Mise en production :
+++++++++++++++++++++
+
+* Mapnik,
+* Mapproxy 
+	* WMS - WMTS - WFS
+	
+Et après ?
+++++++++++
+
+* Corriger les derniers défauts graphiques,
+* Enrichir imposm de fonctions exploitants les relations d'OSM,
+* Préparer une représentation superposable aux orthos,
+* Etudier la migration vers des outils plus performants :
+	* Basemaps,
+	* Imposm 3,
+* Profiter de l'expérience de GeoBretagne,
+* Déployer les outils sur un serveur plus robuste.
+	
+Expérience GéoBretagne
+++++++++++++++++++++++
+Fond europe mis en place.
+Victime de son succès, certains éditeurs le préconisent. Des acteurs hors Bretagne appellent quand le service est en rade.
+
+GéoBretagne (F. Phung) :
+
+* Financer par les fonds GéoBretagne,
+* Gestion du tuilage via GeoWebCache,
+* 54 tuiles/secondes - Bande passantes 19.0 mbps,
+* osm.geobreatgne.fr/gwc01/home,
+* Imposm pour la visu (19 GB),
+* OSM2Postgres pour l'exploitation (138 GB),
+* France : 2,7 Go. 200Go si on exploite tous les tags,
+* Europe : 20Go (pas tous les tags),
+* Lourd à porter pour une plateforme, mais rentable à partir de 2,5 plateformes,
+* Problèmes des « dalles bleues » qui sont à nettoyer régulièrement (dûes à la capacité serveur).
+
+Quelles pistes pour mutualisé ?
++++++++++++++++++++++++++++++++
+
+Actuellement, ce n'est pas un serveur dédié à cet usage exclusif. Le service est couplé sur le serveur GéoBretagne.
+Idéalement il faudrait passer sur un serveur dédié mais qui finance ce serveur ?
+
+Projet plus porté par la recherche et université ? Pas forcément. Les plus gros porteurs et consommateurs sont les colléctivités territoriales.
+Fonds Européens mal engagés et situation bancale au sein des Régions.
+
+Camptocamp : pas d'écho sur ce projet pour le moment malgré un fort historique et besoin. Peut être un retour après le geOcom.
+Aquitaine : fond de plan = BD Topo IGN - Lien Fond OSM GeoBretagne - Pas de définition prioritaire.
+ViennAgglo : interessée par la démarche.
+Appel au don de machine (à l'instar d'OSM France).
+
+Côté institutionnel (Etat) : pourquoi vous ne prenez pas les fonds de l'IGN.
+Côté OSM : pourquoi ne pas rester en Web Mercator,
+Pas de discussion, d'échange entre ces deux acteurs.
+
+
+Une IDS "INSPIRE-compliant" !
+*****************************
+@valerie @benjamin Chartier (GéoPicardie)
+
+.. warning:: 
+   Cf. Inspire pour les néophytes...
+   
+* Rappel des commandements d'INSPIRE (cf. présentation) : données, services, métadonnées de données et de service,
+* Métadonnées INSIPRE = ISO 19139,
+* A terme, les donnees INSPIRE devront respecter un modèle et un format (GML) définit,
+* Recommandation Standard OGC (WFS/WMS/ATOME).
+
+Une documentation très prolifique : réglementation européenne, guidelines, recommandations françaises !
+
+.. warning::
+	Voir Guide des métadonnées de GéoBretagne : http://kartenn.region-bretagne.fr/wiki/doku.php
+
+Expérience CRAIG
+----------------
+Landry Breuil (CRAIG)
+
+Mise en oeuvre :
+++++++++++++++++
+
+* GeoNetwork standard pas celui de geOrchestra,
+* Utilisation de la vue dans GeoNetwork et du Publisher,
+
+* Mise en oeuvre de services INSPIRE : métadonnées, consultation,
+* Téléchargements ont existé avant la mise en place de geOrchestra,
+* Service de téléchargement via FTP pour open data (<10Go),
+* Téléchargement via services WFS mais les utilisateurs n'ont pas encore bien perçu les enjeux,
+* Catalogue : utilisation de la nouvelle vue. Très en attente de GeoNetwork 3. Aujourd'hui, il est difficile de dire qui est conforme.
+* Utilisation de métadonnées-party (concept breton) : une 12aine d'organisées,
+* Métadonnées renseignées par les producteurs, Garantie qualité apporté par le CRAIG.
+
+Moyen de mise en oeuvre :
++++++++++++++++++++++++++
+
+* Métadonnées Party
+* Fichier Excel permettant de récupérer les métadonnées de certaines données par les services utilisateurs
+
+Remarques :
++++++++++++
+
+* Qui valide la métadonnées ? Qui la rend conforme ? Comment détermine-t-on que la métadonnée est conforme ?
+* Moissonage par les services supérieurs ? GéoCatalogue ? GéoRhonealpes ? Dans les 2 sens ?
+
+Bilan :
++++++++
+
+* Point de vue du CRAIG : un effort conséquent = charge de travail à temps plein : 1 ETP dédié INSPIRE au CRAIG et cela a permis d'améliorer grandement les choses. « Best effort », pas parfait mais !
+
+Remarques :
++++++++++++
+
+* Benjamin : il n'est pas difficile de faire venir les gens à ces formations/MD Party, mais ça n'a pas d'effets ensuite : les md ne rentrent pas.
+* Lydie : les produits d'appel comme SVIEWER/MVIEWER peuvent inciter au remplissage !
+* Moissonnage par le GéoPortail national : quelques difficultés dans ma mise en oeuvre, plus stable récemment. Ont aussi réussi à moissonner des partenaires (DREAL, Clermont communauté, etc.).
+* Moissonnage de la plateforme CRAIG par la plateforme open data de la Région.
+* Toutes les fiches du CRAIG (sauf exclues à la main celles de l'IGN ou DGFIP) sont remontées au niveau national. 
+* L. Ecault : si męme id, c'est le géoportail national qui trie automatiquement.
+* PIGMA : a créé une vue simplifiée (environ 15 champs). Se heurte aux męmes problèmes : animation, formation, hotline.
+* CIGAL : utilise un fichier xls, converti ensuite en xml.
+
+Perspectives :
+++++++++++++++
+
+* Beaucoup de travaux au sein de la communauté Geonetwork. Enjeux d'intégrer GN3 dans geOrchestra.
+* La Géopublication ?
+* Toujours besoin de clarifier INSPIRE,
+* Insister sur les bonnes pratiques.
+
+Questions :
++++++++++++
+
+* Geoserver pour INSPIRE, est-ce mis en place ? GéoBretagne renvoie sur outil neogeo.
+
+L'outil (développé par Benjamin) a 3 ans et souffre des évolutions depuis (ne gère pas par exemple le WFS). Les specs ont évolué. Cela ne peut pas ętre la référence.
+
+.. warning::
+	Discussion en cours au niveau européen et il pourrait servir de référence.
+
+	
+Expérience GéoPicardie
+----------------------
+
+Identifiant Unique
+++++++++++++++++++
+
+* Pouvoir identifier une ressource facilement = Identifieur de ressource unique
+* Formattage de l'identifiant :
+	* Préfixer l'identifiant soit avec le SIREN ou le nom de domaine.
+* Identificateur de ressource unique :
+	* Ce descripteur risque d'évoluer prochainement (un groupe dédié a été mis en place par le CNIG). On ne sait pas quoi renseigner encore, il est donc plus prudent d'attendre. URL? URL qui pointera vers la métadonnée
+
+
+Thème INSPIRE
++++++++++++++
+
+* Connaître le thème INSPIRE à insérer dans la fiche de métadonnées (Site du GeoCatalogue = Guide de l'ensemble des données correspondant à une politique publique et association à un thème INSPIRE),
+* Voir ce qu'il se fait sur les autres plateformes,
+* Thème INSPIRE : pour s'aider, aller sur le site du géocatalogue le tableau d'affectation des données aux thèmes INSPIRE (http://www.geocatalogue.fr/HelpCatalogue.do) => 1 seul thème dominant,
+
+Localisation de la ressource
+++++++++++++++++++++++++++++
+
+* Un lien public,
+* Insérer un lien sur la fiche de métadonnées elle-même,
+* Localisateur de la ressource : très bien expliqué dans le guide du CNIG (http://cnig.gouv.fr/wp-content/uploads/2014/01/Guide-de-saisie-des-%C3%A9l%C3%A9ments-de-m%C3%A9tadonn%C3%A9es-INSPIRE-v1.1-final-light.pdf). Idée préconisée : mettre l'URl de la fiche de métadonnée elle-męme
+
+Divers
+++++++
+
+* Résolution spatiale des données : il faut en mettre une seule (soit échelle soit résolution).
+
+
+Contraintes/Conditions d'accès et d'utilisations
+++++++++++++++++++++++++++++++++++++++++++++++++
+* Partie complexe à renseigner proprement : pas à la portée de tout le monde (Cf. guide de recommendations du CNIG),
+* Mot-clé "données ouvertes" pour les données réutilisables (permet d'être moissonnées par les plateformes open data),
+* Besoin : Copier/Coller depuis des modèles courants préparés par un administrateur.
+
+
+
+Débat
++++++
+
+* Gestion annuaire de contacts : pas très bien géré,
+* Outil développé en python en Bretagne sur des "rechercher/remplacer". Avec la nouvelle version de Geonetwork, cela va s'améliorer
+* Expérience de création automatique de fiches MDS à partir d'un service de Geoserver. Juste une phase délicate avec un XSL concernant la moulinette entre GeoServer et GeoNetwork. Opérationnel aujourd'hui pour les WMS de GéoBretagne
+   
+* Lien fiche de métadonnées et visualiseur : aujourd'hui via le OnLineRessource. Cela permet de visualiser les données sur mapfishapp et dans mapfishapp, ajout de la donnée dans le catalogue. Aujourd'hui la géopublication n'est pas parfaite, donc peu utilisé. Cela mériterait d'ętre optimisé pour éviter les doublons (logo, nom, etc.)
+* Benjamin souligne le souci d'interopérabilité dès lors que l'on travaille avec des plateformes qui ont fait d'autres choix techniques. Il existe deux méthodes différentes, toutes deux valides.
+
+* Solution théorique idéale :
+
+	* MDD référencé par un service privilégié,
+	* Chaque service référence les données,
+	* Charge au catalogue de faire le lien, de l'intéręt de l'identificateur unique de ressource.
+
+
+.. warning::
+	Validateurs INSPIRE : plusieurs existent et parfois difficiles à comprendre (cf. validateur européen).
+	M. Reboux : Il faudra aussi ętre vigilants aux recommandations françaises
+
+* Téléchargement : (recommandations) Direct pour WFS et/ou simple pour ATOM. Il faut à minima l'un ou l'autre.
+	* Comment (ou faut-il) mettre en place dans geOrchestra ?
+		* CRAIG : pense que le WFS suffit. Benjamin pense que le besoin existe (cf. Auvergne sur ortho ou GéoBretagne sur téléchargement cadastre), donc autant le mettre à la sauce INSPIRE,
+		* Fabrice dit : attention à la séparation viewer(accès ressources en ligne)/download(coupe le lien vers données),
+		* Benjamin fait aussi part des problèmes liés aux vitesses de connexion internet
+		
+
+* Service catalogue : destiné à des machine et pas des humains !
+
+* Point sur la roadmap :
+	* GéoPicardie va commander très prochainement des développements, et notamment sur catalogue (catalogue) (disponibilité fin d'année),
+
+* Estimation de la charge pour passer de GN 2.9 à 3 ? Environ 10 jours. 
+
+
+
+Sécurité des données : Geoserver VS GeoFence
+*********************************************
+
+@florent @pierre @françois
+
+https://www.dropbox.com/s/25jg9s7ahjqsaqt/2014-06-19_geocom_geofence.pdf
+
+GeoFence financé par PIGMA : solution qui permet d'aller plus loin que ce que sait faire Geoserver. Nouvelle brique intégrée dans geOrchestra 14.01.
+
+Rappel architecture applicative geOrchestra (groupes gérés dans le LDAP, rôles en fonction des groupes intégrés en fonction des applications).
+
+* Geoserver sécurité : on utilise seulement les rôles dans geOrchestra (mais pas les utilisateurs et groupes qui sont récents dans GS). GS fonctionne sur un système de règles pour définir les droits en fonction des rôles. Triplet : espace de travail.couche.permission Si une règle n’est pas spécifiée pour une couche, elle hérite des règles de son espace de travail.
+* GeoFence : solution open source développée par geosolutions-it. Pemret une surcharge des mécanismes d’autorisation et d’authentification GeoFence prend le pas sur les règles de GS via un système de règles externes. Les contrôles d’accès peuvent ętre faits sur utilisateurs, groupes mais dans geOrchestra, seuls les rôles on été exploités. Cela permet un contrôle affiné : services, opérations, couches, attributs, opérations, espaces de travail, polygone englobant de la requęte, styles, filtres CQL, 1 GeoFence peut contrôler N instances de GS. Chaque GS intrégant GF est compilé (GF Probe). Les règles de GF : contrairement à GS (de la + fine à la - fine), on définit des priorités dans GF. Interface REST Geofence GUI
+
+Choix dans geOrchestra d’activer ou non geofence à l’occasion du build du geoserver.
+
+Retours utilisateurs - PIGMA :
+
+* OK pour répondre aux besoins mais quelques lourdeurs sont constatées (1000 règles). Réflexion en cours côté C2C pour développer une interface proche de ldapadmin. - Rennes Métropole : a testé règles sur périmètres géographiques et ça marche
+
+* Qui a besoin de ce type de filtrage ?
+	* CIGAL, Agrocampus, d’autres ? Remarque CRAIG : regrette que GF soit intégré à Geoserver. cela aurait été mieux de le faire au niveau du proxy.
+
+
+Sécurité des données native avec Geoserver
+------------------------------------------
+
+Rappel sur le fonctionnement du sec-proxy
++++++++++++++++++++++++++++++++++++++++++
+
+* Architecture :											
+	* Frontal Web / Reverse Proxy --> sec-proxy (LDAP) --> 	viewer / geonetwork / geoserver.
+
+* Utilisateurs et Groupes GeoServer non utilisés
+* Rôles mappés sur le contenu des headers sec-roles
+
+Motif d'une règle :
++++++++++++++++++++
+
+Triplet = workspace.layer.permission =role[,role2,...]
+
+Permissions :
++++++++++++++
+
+* r - Accès en lecture
+* w - Accès en écriture
+* a - Admin
+
+Règles de priorisations des règles = Les règles sont évaluée en commençant par les plus précises.
+
+Exemple :
++++++++++
+
+* *.*.r = ROLE_TRUSTED
+	* Accès restreint en lecture aux membres du ROLE_TRUSTED
+
+* *.*.w = ROLE_NO_ONE
+	* Interdit le WFS-T
+
+* poi.*.r =*
+	* Accès en lecture autorisé à tout le monde dans l'espace de travail poi
+
+Sécurité des services :
++++++++++++++++++++++++
+
+RAS
+
+Motif des règles :
+++++++++++++++++++
+
+<service>.<operation>=<role>[,<role2>,...]
+
+* Avec service = wms, wfs, wcs
+* Opération = getCapabilities, getFeature, ...
+
+Sécurité des données avec Geofence
+----------------------------------
+
+Solution opensource qui surcharge les mécanismes d'Authentification et d'Autorisation de Geoserver :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+* Licence GPL
+* Sources Github
+
+Authentification (Géré par geOrchestra) :
++++++++++++++++++++++++++++++++++++++++++
+
+GeoFence gère l'authentification en standalone mais ici l'implémentation a été supprimé car gérée par la CAS de geOrchestra
+
+* Intégrée dans l'archi de GeoServer,
+* Intégrée dans l'archi de GeoOrchestra.
+
+Autorisation :
+++++++++++++++
+
+* Autorisation sur les données,
+* Autorisation sur les services.
+
+Surcharge la gestion des autorisations de GeoServer - Fournit un système de règles externes  - Traite les requêtes à la volée
+
+Les contrôles d'accès sont basés sur :
+
+* Les utilisateurs,
+* Les groupes,
+* Les rôles (geOrchestra).
+
+Contrôle affiné :
+
+* Services,
+* Opérations,
+* Espace de travail,
+* Couches,
+* Attributs.
+
+Application Web spécifique :
+++++++++++++++++++++++++++++
+
+* REST API,
+* GUI.
+
+Scalable :
+++++++++++
+
+* 1 GeoFence peut contrôler N instances de GeoServer,
+* Pas de configuration particulière si plusieurs instances de GeoServer sur la machine (Load Balancing). On référence juste le frontal.
+
+
+Architecture :
+++++++++++++++
+
+* GUI,
+* Core : GUI core, implémentée avec GWT,
+* Webapp: l'interface produisant le .war final,
+* Geoserver (GeoFence Probe).
+
+Security :
+++++++++++
+
+* Surcharge le module security de GeoServer,
+
+GeoFence Probe est déployé dans chaque GeoServer.
+
+Avantages/Inconvénients :
++++++++++++++++++++++++++
+
+Geoserver
++++++++++
+
+* Avantages :
+	* Gestion des règles simples,
+	* Bonne intégration,
+	* Doc ++,
+	* Grosse communauté.
+
+* Inconvénient :
+	* Impossible de désactiver WFS ou WCS pour une couche ou un espace de travail.
+
+GeoFence
+++++++++
+
+* Avantages :
+	* Granularités forte des règles, 
+	* Possibilité de restreindre sur un périmètre geographique  (spécifique à la règle) soit statique soit dynmaique (spécifique à l'utilisateur connecté).
+
+* Inconvénients :
+	* Lourdeur des règles,
+	* UI peu conviviale,
+	* Intégration moyenne,
+	* Doc --,
+	* Petite communauté,
+	* Contraintes LDAP (GeoFence mappé sur les groupes LDAP = obligation identifiant unique numérique pour les users et groups) - Ajout de champs sur group LDAP ou détournement de champs existants.
+
+
+Plus de performances sur les services - (60mn)
+**********************************************
+
+@pierre @françois  @fabrice @landry
+
+Fabrice Phung rappelle les perfs dans le cadre d'INSPIRE.
+
+Mise en oeuvre dans la cadre de GeoBretagne :
+---------------------------------------------
+
+1. Supervision permanente et tests unitaires (hobbit),
+2. Limites de sécurité (count=xx, temps de calcul limité),
+3. Optimisation du réseau (cache, compression flux),
+4. Optimisation des images produites(png optimisé, jpeg),
+5. Optimisation des styles (limites d'échelle max 1000 objets-noeuds),
+6. Optimisation des données (index, format, généralisation),
+7. Utilisation de cartes pré-calculées (services tuilés, cache) : Attention car cela coupe le lien vers la donnée, problème des tuiles obsolètes,
+8. Performance des navigateurs (html5, javascript),
+9. Optimisation de l'hébergement (répartition de charge, plus de machines,mémoires,etc).
+
+PIGMA :
+
+* Constate des ralentissements du service (récurrent avec Liferay), c'est une préoccupation,
+* Quelle disposition d'urgence en cas de crash : surveillance accrue du reverse proxy apache, connaitre ce que la machine peut accepter pour mettre de bons seuils ?
+
+CRAIG :
+
+* Les performances sont surtout attendues sur l'ortho et pour le moment, ça répond.
+
+Ressources indispensables :
+
+* Doc de Geoserver : Geoserver en production (http://docs.geoserver.org/stable/en/user/production/index.html),
+* Geoserver on steroid (http://blog.geoserver.org/2013/10/02/geoserver-foss4g-2013/),
+* Geoserver in production ( boundless geo) : http://boundlessgeo.com/whitepaper/geoserver-production-2/.
+    
+Idée P. Mauduit :
+
+* Faire une chaîne de tests unitaires (ex. sur jmeter,TSUNG avec module TSUNG-GIS, http://tsung.erlang-projects.org/, https://github.com/rodo/tsung-gis).
+
+
+Monitoring des services - (60mn)
+********************************
+
+@pierre @fabrice @landry @benjamin
+ 
+Différents profils :
+
+* utilisateurs, administrateurs de données, administrateurs système
+
+Etat de l'art :
+
+* Nagios "vanilla" et "georchestra". Date de 1999.
+
+* Peut-on homogénéiser les pratiques en terme de monitoring en fonction des différents besoins des plateformes ?
+
+
+	* Benjamin : précise ses besoins qui vont plus loin que de monitore des http (ex. données stockées, voir celles qui ne sont pas publiées dans GS, celles qui ne sont pas cataloguées, comparer des utilisateurs rentrés dans le LDAP et ceux des mailing list, etc.)
+		* Cela est peut-ętre plus à mettre dans un paquet "outils qualité".
+	* Valérie fait part des déboires (avant hobbit) sur la plateforme qui s'ecroule en formation. Hobbit permet de monitorer et de faire un lien entre les administrateurs de données et les informaticiens. L'arrivée de Jenkins a permis d'accéder à une autonomie trs appréciée (pouvoir relancer geoserver tout seul, soulager les administrateurs système et les utilisateurs).
+	* Sébastien : Quand on a 100 services WMS, que faut-il monitorer ?
+		* Pierre : Bonne question, on ne peut pas tout monitorer,
+		* Fabrice : plutôt ce qui est critique, ce qui a déjà planté plusieurs fois.
+
+* Nouveautés en matière de monitoring :
+	* ElasticSearch,
+	* Logstash,
+	* Kibana.
+
+* Intéressant peut-être en complément de Nagios pour détecter notamment les zones géographiques les plus fréquentées.
+
+* Cela est-il intéressant d'ouvrir le monitoring à tous les utilisateurs ou public ?
+	* Fabrice : l'outil de supervision n'est pas forcément du ressort de geOrchestra, ne serait-ce que parce que souvent une DSI a déjà ses propres outils de monitoring.
+	* CRAIG : spatineo très bien mais cela a un coűt.
+		* Mapmeter, moins cher ?
+		* FVDB : il existe un module sur georchestra : analytics sur les statistiques de consultation.
+
+* Monitoring des services :
+	* Hobbit,
+	* Jenkins,
+	* Nagios,
+	* Elasticsearch/Logstatch.
+
+	
+Vendredi 20/06/2014
+===================
+
+WPS Bassin versant -(60mn)
+**************************
+
+@rod (Roderic Bera) @hervé (Hervé Squividant)
+
+http://geowww.agrocampus-ouest.fr/web/
+http://geoxxx.agrocampus-ouest.fr/mapfishapp/
+
+Mise en oeuvre de services
+--------------------------
+
+Principe
+++++++++
+
+* Notion de silos (Application métier) - Organisation en silo : grosse capacité en individuel,
+* Les service WEB : WMS, WFS, CSW, WPS en avant centre, WFS, etc.
+	* Remplaçants : Raster data, SOS (sensor observation service), TJS.
+     
+* Exempale : Carte nationale sur les zones humides potentielles : capacité à styler à la volée,
+* Agrocampus intéressé pour le développement d'outils pour styler les raster,
+* Librairie Dygraph pour mettre de l'applicatif,     
+* Agrocampus intéressé par un nouvel onglet SOS dans "ajouter couche" :
+	* Sur le TJS : vision moins claire. Idée d'une jointure côté client entre une couche et une table externe. 
+	* En Picardie : la partie TJS peut ętre sous-traitée à Géoclip (non libre). Car Geoclip produit très simplement un flux TJS à partir d'un fichier excel.
+	* Sinon, il existe un TJS serveur dans github. Tentative de TJS dans geoserver.
+
+* Utilisation de QGIS et de son client QGIS WPS.
+
+Logiciel Maison : MNTSurf
++++++++++++++++++++++++++
+
+* Dédié au traitement des MNT,
+* Language C,
+* Dédié à la modélisation hydrologique,
+* Structures de graphe,
+* Calcul des contours des Bassins Versants topographiques.
+
+WPS
++++
+
+* Web Processing Service = Standard OGC,
+* Dépoiement d'un serveur WPS :
+	* pyWPS + MNTSurf = Serveur WPS = agrocaWPuS.
+
+* Utilisation du serveur WPS via QGIS + Extension WPS Client :
+	* GetCapabilities = récupération des traitements dispos,
+	* DescribeProcess = choix des variables et des paramètres à appliquer au processus,
+	* Execute = exécution du processus,
+	* Reponse GML via http.
+
+Addons
+++++++
+
+* Extension ou addon au visaliseur de geOrchestra Mapfishapp :
+	* Dédié au WPS BAssin Versant,
+	* Techno = ExtJS, OL, GeoExt,
+	* Modulaire + Libre : http://github.com/geosas/wpsbv.
+
+* Principe du WPS par référence & addon geOrchestra :
+	* La donnée ne transite jamais vers le client.
+
+Réutilisation
++++++++++++++
+
+* Fréquentation : 25/30 req/jour en moyenne - 250 max,
+* SOurces : 60% GéoSSAS, Client WEB - 30%.
+
+Conclusion
+++++++++++
+
+* Point fort : sans aucun logiciel ni données sur son poste un utilisateur peut éxecuter au sein de l'IDS un traitement ou modèle prenant en entrée des données OGC. La couche produite est également diffusée en OGC.
+* Limite/difficulté : maintenance Addon
+* Modélisation & IDS, c'est possible !
+* Succès en Bretagne
+
+Parallèle avec OpenLS du Géoportail (Calcul d'itinéaire - Calcul d'isochrones) - Addon geOrchestra sur MapfishApp pour intégrer les services OpenLS de l'IGN.
+
+
+Mutualisation des moyens de formation - (60mn)
+**********************************************
+
+Lena Peron - Lydie Vinsonneau
+@lydie @lena
+
+https://trello.com/b/OtdB2wRG/formationmutualisation - maquette mutualisation de compétences, moyens, ressources http://peronlena.wix.com/mutuallearning
+
+Contexte :
+----------
+
+* Notions concepts techniques pas toujours accessibles faciles à faire passer à la communauté GéoBretagne,
+* Mise en place de formations "artisanales" assurées par l'équipe GéoBretagne :
+	* Mais demande de plus en plus croissante et surtout avec un public élargi et très diversifié,
+	* Besoin de vulgarisation et d'optimisation des formations -> concommittent avec une demande de stage de Léna (Licence profesionnelle usage socio-éducatif TIC + profil de formation indépendante).
+
+Présentation de la maquette d'un site internet pour la formation : http://peronlena.wix.com/mutuallearning
+
+* Offre de formation existante : en présentiel + en kits.
+
+Maquette :
+----------
+
+* Objectifs de formation, calendrier, ressources, outils collaboratifs pour créer des formation, galerie des compétences (formateurs), forums avec sujet de formation.
+* Les préoccupations de GéoBretagne sont les męmes que les autres plateformes, et particulièrement celles dotées de geOrchestra puisque la description technique est la męme et a vocation à ętre mutualisée.
+
+* Enquęte conduite auprès des autres plateformes : tous partagent le besoin de former/vulgariser leurs utilisateurs,
+* Permet de soulager les formateurs pour rediriger vers des formations en ligne.
+
+* PIGMA : besoin d'accompagnement auprès des utilisateurs,
+* CRAIG a déjà mis des choses en ligne.
+* Ressenti général sur mutualisation ou non ?
+	* Passage sur le trello pour la suite : https://trello.com/b/OtdB2wRG/formationmutualisation   
+
+Suite :
++++++++
+
+* les constats sont posés sur le trello, maintenant tout reste à faire...
+
+
+Relations geOrchestra / OSM / HOT
+*********************************
+
+@rod @nicolas
+
+* HOT : projet humanitaire basé sur du volontariat pour fournir des cartos précises en cas de crise humanitaire (à la base).
+* N. Chavent travaillait au préalable pour l'ONU. La souplesse d'OSM a permis de progresser dans le domaine du partage et de contribution à la cartographie.
+* OSM : donnée manquante sur la population.
+
+Fort besoin en terme de création de données spatialisées :  formation indispensable auprès des populations locales.
+Beaucoup de travail sur des walking papers (avec QRCode) http://walking-papers.org/, ou formulaires plus spécifiques
+
+gouvernance OSM : citoyens, associations, gouvernenment, secteur privé, ONG...
+Ex. d'outil développé : tasking manager http://tasks.hotosm.org/
+
+* Formation : http://learnOSM.org/fr
+
+Grande réactivité.
+
+Projet Espace OSM francophone. Connexion possible avec geOrchestra car besoin autour de couches extraites d'OSM pour les visualiser sur une IDS.
+
+Dessin coloré de Rod !
+Questions posées sur la pertinence des liens entre geOrchestra, OSM et HOT?
+P. Mauduit fait part du merge récent sur l'intégration du format OSM dans Mapfish
+F. Phung : expérience récente dans le cadre du pôle métier Transports : travail avec OSM. Tests en cours sur intégration des transports doux issus d'OSM dans GéoBretagne.
+Il y a aussi des enjeux sur les POI.
+
+Pourquoi pas alimenter OSM en WFS-T ?
+
+Geonode ? Pas la męme philosophie que geOrchestra, c'est un outil qui sert à collecter de l'information et à la représenter.
+Mieux vaut pas d'arbitrage qu'un mauvais arbritrage...
